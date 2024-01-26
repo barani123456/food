@@ -47,6 +47,7 @@
           <a class="navbar-brand" href="index.html">
             <span>
               food
+               <div id="time">
             </span>
           </a>
           <div class="" id="">
@@ -501,7 +502,28 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-nice-select/1.1.0/js/jquery.nice-select.min.js" integrity="sha256-Zr3vByTlMGQhvMfgkQ5BtWRSKBGa2QlspKYJnkjZTmo=" crossorigin="anonymous"></script>
   <!-- custom js -->
   <script src="js/custom.js"></script>
+  <script type="text/javascript">
+       timerID = setInterval('clock()',500);
 
+       function clock() {
+        document.getElementById("time").innerHTML = getNow();
+      }
+
+      function getNow() {
+        const now = new Date();
+        const year = now.getFullYear();
+        const mon = now.getMonth()+1;
+        const day = now.getDate();
+        const hour = now.getHours();
+        const min = now.getMinutes();
+        const sec = now.getSeconds();
+        const week = now.getDay();
+        const weekItems = ["日", "月", "火", "水", "木", "金", "土"];
+        const dayOfWeek = weekItems[week];
+        const s = year + "年" + mon + "月" + day + "日" +"("+dayOfWeek +") "+ hour + ":" + min + ":" + sec; 
+        return s;
+      }
+  </script>
 
 </body>
 
